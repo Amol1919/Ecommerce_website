@@ -1,6 +1,6 @@
 // Signup.js
 import objValidation from './Validation.js';
-import { saveUser } from './signupStorage.js';
+import { saveUser } from './SignupStorage.js';
 
 const form = document.getElementById("signupForm");
 
