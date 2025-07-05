@@ -60,7 +60,7 @@ form.addEventListener("submit", (e) => {
 
     // ✅ Redirect parentNode.appendChild 1 second
     setTimeout(() => {
-      window.location.href = "home.html";
+      window.location.href = "Home.html";
     },0);
   } else {
     alert("Wrong email or password.");

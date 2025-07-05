@@ -1,0 +1,132 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #f0f2f5;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* Contact Info */
+.top-bar-left span {
+  margin-right: 25px;
+  color: #444;
+  display: inline-flex;
+  align-items: center;
+}
+
+.top-bar-left i {
+  margin-right: 8px;
+  color: #ff9800;
+}
+
+/* Social Icons */
+.top-bar-right a {
+  margin-left: 14px;
+  color: #444;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.top-bar-right a:hover {
+  color: #ff9800;
+}
+
+/*second nav bar styling*/
+
+/* Already existing from before */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #f0f2f5;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.top-bar-left span {
+  margin-right: 25px;
+  color: #444;
+}
+
+.top-bar-left i {
+  margin-right: 8px;
+  color: #ff9800;
+}
+
+.top-bar-right a {
+  margin-left: 14px;
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.top-bar-right a:hover {
+  color: #ff9800;
+}
+
+/* ✅ Navigation Bar */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.left-nav select {
+  padding: 6px 12px;
+  margin-right: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.center-nav a {
+  margin-left: 20px;
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.center-nav a i {
+  margin-right: 6px;
+  color: #999;
+}
+
+.center-nav a:hover {
+  color: #ff9800;
+}
+

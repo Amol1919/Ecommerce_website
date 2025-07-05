@@ -1,17 +1,59 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Page</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
-  </style>
+
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="Home.css" />
 </head>
 <body>
-  <h1>🎉 Welcome to the Dashboard!</h1>
-  <p>You have successfully logged in.</p>
+
+  <!--  Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span><i class="fas fa-phone"></i> +91 7777777777</span>
+      <span><i class="fas fa-envelope"></i> phpenquiry@gmail.com</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-dribbble"></i></a>
+      <a href="#"><i class="fab fa-google-plus-g"></i></a>
+    </div>
+  </div>
+
+  <!--  Navigation Section -->
+  <div class="main-nav">
+    <div class="left-nav">
+      <select>
+        <option>USA</option>
+        <option>India</option>
+      </select>
+      <select>
+        <option>DOLLAR</option>
+        <option>INR</option>
+      </select>
+    </div>
+
+    <div class="center-nav">
+      <a href="#"><i class="fas fa-crosshairs"></i> Home</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Cart </a>
+      <a href="#"><i class="fas fa-lock"></i> Add Category</a>
+      <a href="#"><i class="fas fa-lock"></i> Add Brand</a>
+      <a href="#"><i class="fas fa-lock"></i> Add Product</a>
+      <a href="#"><i class="fas fa-lock"></i> Change Password</a>
+      <a href="#"><i class="fas fa-lock"></i> Logout </a>
+    </div>
+  </div>
+<script type="module" src="Logout.js"></script>
 </body>
 </html>
