@@ -58,10 +58,10 @@
     <!-- Product Section -->
     <main class="main-content">
       <div class="features-block">
-      <h2 class="features-title">FEATURES ITEMS</h2>
-      <div class="product-container" id="featureItems"></div>
+        <h2 class="features-title">FEATURES ITEMS</h2>
+        <div class="product-container" id="featureItems"></div>
+      </div>
     </main>
-  </div>
   </div>
 
   <!-- Blur overlay -->
@@ -104,7 +104,30 @@
     </div>
   </div>
 
-  <!-- JS (Class-based scripts only) -->
+  <!-- Product Details Modal -->
+  <div class="modal" id="productDetailModal">
+    <div class="modal-box product-detail-box">
+      <span class="close-btn" id="closeProductDetailBtn">&times;</span>
+      <div id="productDetailContent" class="detail-layout">
+        <div class="detail-image">
+          <img id="detailImage" src="" alt="Product Image" />
+        </div>
+        <div class="detail-info">
+          <h2 id="detailName">Product Name</h2>
+          <p><strong>Price:</strong> <span id="detailPrice"></span></p>
+          <p><strong>Discount:</strong> <span id="detailDiscount"></span></p>
+          <p><strong>Final Price:</strong> <span id="detailFinalPrice"></span></p>
+          <p><strong>Brand:</strong> <span id="detailBrand">Brand</span></p>
+          <p><strong>Category:</strong> <span id="detailCategory">Category</span></p>
+          <p><strong>Info:</strong></p>
+          <p id="detailDescription">This is sample product description. You can update it in JS.</p>
+          <button class="cart-btn">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Files (Already in Project) -->
   <script type="module" src="AddCategory.js"></script>
   <script type="module" src="AddBrand.js"></script>
   <script type="module" src="AddProduct.js"></script>

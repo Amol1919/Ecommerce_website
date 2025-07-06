@@ -238,3 +238,59 @@ body {
   cursor: pointer;
   color: #666;
 }
+
+/* Product Detail Modal Styles (Added Feature Support) */
+.product-detail-box {
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+}
+
+.detail-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.detail-image img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.detail-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.detail-info h2 {
+  font-size: 22px;
+  color: #1976d2;
+  margin-bottom: 10px;
+}
+
+.detail-info p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.detail-info button.cart-btn {
+  margin-top: 16px;
+  background-color: #4caf50;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.detail-info button.cart-btn:hover {
+  background-color: #388e3c;
+}

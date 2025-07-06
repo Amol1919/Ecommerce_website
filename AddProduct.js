@@ -27,7 +27,7 @@ class AddProduct {
     // Get product detail popup items
     this.detailPopup = document.getElementById("productDetailModal");
     this.detailContent = document.getElementById("productDetailContent");
-    this.closeDetailPopupButton = document.getElementById("closeDetailBtn");
+    this.closeDetailPopupButton = document.getElementById("closeProductDetailBtn");
 
     // Start all functions
     this.setupOpenPopup();
@@ -150,8 +150,8 @@ class AddProduct {
         <p><strong>Price:</strong> ₹${product.price}</p>
         <p><strong>Discount:</strong> ₹${product.discount}</p>
       </div>
-      <p><strong>${product.name}</strong></p>
-      <p>${product.category}</p>
+      <p><strong class="product-name">${product.name}</strong></p>
+      <p class="product-category">${product.category}</p>
       <button class="cart-btn">Add to cart</button>
     `;
 
@@ -162,8 +162,9 @@ class AddProduct {
       this.addToCart(product);
     });
 
-    // Clicking card opens product detail
+    // ✅ Clicking the card opens product detail modal
     card.addEventListener("click", () => this.showDetailPopup(product));
+
     this.productListBox.appendChild(card);
   }
 
@@ -198,6 +199,7 @@ class AddProduct {
     }
   }
 
+  // ✅ New: show product detail popup
   showDetailPopup(product) {
     this.detailContent.innerHTML = `
       <div class="product-detail-content">
@@ -221,6 +223,7 @@ class AddProduct {
     this.detailPopup.style.display = "flex";
   }
 
+  //  New: close the popup
   setupCloseDetailPopup() {
     this.closeDetailPopupButton.addEventListener("click", () => {
       this.detailPopup.style.display = "none";
@@ -233,7 +236,6 @@ class AddProduct {
     });
   }
 
-  // Save product to cart and redirect
   addToCart(product) {
     const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
     currentCart.push(product);
@@ -241,9 +243,8 @@ class AddProduct {
 
     alert("Added to cart!");
 
-    // Redirect to Cart Page after 500ms
     setTimeout(() => {
-      window.location.href = "Cart.html"; // Ensure this file exists
-    },0);
+      window.location.href = "Cart.html";
+    }, 0);
   }
 }
