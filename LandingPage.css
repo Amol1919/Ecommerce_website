@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.top-bar select {
+  margin-right: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.top-bar .right a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.top-bar .right a i {
+  margin-right: 6px;
+}
+
+/* Main Navigation */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-left a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  position: relative;
+}
+
+.nav-left a.active {
+  color: orange;
+  font-weight: bold;
+}
+
+.nav-left a i {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1e7;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.nav-right input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 4px 6px;
+  font-size: 14px;
+  color: #444;
+}
+
+.nav-right i {
+  color: gray;
+  font-size: 14px;
+}

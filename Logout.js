@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         alert("You are now logged out!");
 
-        window.location.href = "LoginSignup.html";
+        window.location.href = "LandingPage.html";
       });
     }
   });

@@ -1,13 +1,11 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Body Base */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
 }
@@ -18,115 +16,155 @@ body {
   padding: 10px 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-size: 14px;
   border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
-
-/* Contact Info */
 .top-bar-left span {
   margin-right: 25px;
   color: #444;
-  display: inline-flex;
-  align-items: center;
 }
-
 .top-bar-left i {
   margin-right: 8px;
   color: #ff9800;
 }
-
-/* Social Icons */
 .top-bar-right a {
   margin-left: 14px;
   color: #444;
   text-decoration: none;
   font-size: 15px;
-  transition: color 0.3s ease;
 }
 
-.top-bar-right a:hover {
-  color: #ff9800;
-}
-
-/*second nav bar styling*/
-
-/* Already existing from before */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-}
-
-/* Top Bar */
-.top-bar {
-  background-color: #f0f2f5;
-  padding: 10px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.top-bar-left span {
-  margin-right: 25px;
-  color: #444;
-}
-
-.top-bar-left i {
-  margin-right: 8px;
-  color: #ff9800;
-}
-
-.top-bar-right a {
-  margin-left: 14px;
-  color: #444;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.top-bar-right a:hover {
-  color: #ff9800;
-}
-
-/* ✅ Navigation Bar */
+/* Navigation Bar */
 .main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 40px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
-
 .left-nav select {
   padding: 6px 12px;
   margin-right: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  font-size: 14px;
 }
-
 .center-nav a {
   margin-left: 20px;
   color: #444;
   text-decoration: none;
   font-size: 14px;
-  display: inline-flex;
-  align-items: center;
 }
-
 .center-nav a i {
   margin-right: 6px;
+}
+
+/* Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal-box {
+  background: #fff;
+  padding: 30px;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
   color: #999;
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: red;
 }
 
-.center-nav a:hover {
-  color: #ff9800;
+/* Modal Input and Button */
+.modal-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  background: #f1f1e7;
+  border: none;
+}
+.modal-box button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
+
+/* add category*/
+
+/* Add Brand Modal - same design as Add Category */
+#categoryBrand {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#categoryBrand .modal-box {
+  background: #fff;
+  padding: 30px;
+  width: 700px;
+  max-width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Close button */
+#categoryBrand .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+}
+#categoryBrand .close-btn:hover {
+  color: red;
+}
+
+/* Input and button inside modal */
+#categoryBrand input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  background: #f1f1e7;
+  border: none;
+}
+#categoryBrand button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
