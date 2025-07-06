@@ -1,0 +1,46 @@
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  font-family: Arial;
+}
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+th {
+  background-color: orange;
+  color: white;
+}
+img {
+  max-width: 80px;
+}
+button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+button:hover {
+  background: darkred;
+}
+
+.remove-btn {
+  background-color: #eee;
+  color: red;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #fcebea;
+  color: darkred;
+  border-color: red;
+}
+

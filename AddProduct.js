@@ -1,172 +1,249 @@
+// Start the app when page fully loads
+document.addEventListener("DOMContentLoaded", () => {
+  new AddProduct();
+});
+
 class AddProduct {
   constructor() {
-    // All important elements
-    this.addButton = document.getElementById("addProductBtn");
-    this.modal = document.getElementById("productModal");
-    this.closeButton = document.getElementById("closeProductBtn");
+    // Get popup buttons
+    this.openAddProductButton = document.getElementById("addProductBtn");
+    this.addProductPopup = document.getElementById("productModal");
+    this.closeAddProductButton = document.getElementById("closeProductBtn");
 
-    this.nameInput = document.getElementById("productName");
-    this.priceInput = document.getElementById("productPrice");
-    this.discountInput = document.getElementById("productDiscount");
-    this.imageInput = document.getElementById("productImage");
-    this.categorySelect = document.getElementById("productCategory");
-    this.brandSelect = document.getElementById("productBrand");
+    // Get all form input fields
+    this.nameField = document.getElementById("productName");
+    this.priceField = document.getElementById("productPrice");
+    this.discountField = document.getElementById("productDiscount");
+    this.imageField = document.getElementById("productImage");
+    this.categoryDropdown = document.getElementById("productCategory");
+    this.brandDropdown = document.getElementById("productBrand");
     this.submitButton = document.getElementById("submitProductBtn");
 
-    this.featureBox = document.getElementById("featureItems");
-    this.categoryList = document.getElementById("categoryList");
-    this.brandList = document.getElementById("brandList");
+    // Get sections where products and sidebars will show
+    this.productListBox = document.getElementById("featureItems");
+    this.categorySidebar = document.getElementById("categoryList");
+    this.brandSidebar = document.getElementById("brandList");
 
-    // Call methods
-    this.openModal();
-    this.closeModal();
-    this.loadDropdowns();
-    this.handleSubmit();
-    this.showSavedProducts();
-    this.setupCategoryFilter();
+    // Get product detail popup items
+    this.detailPopup = document.getElementById("productDetailModal");
+    this.detailContent = document.getElementById("productDetailContent");
+    this.closeDetailPopupButton = document.getElementById("closeDetailBtn");
+
+    // Start all functions
+    this.setupOpenPopup();
+    this.setupClosePopup();
+    this.fillCategoryAndBrandDropdowns();
+    this.showSavedSidebarItems();
+    this.setupSaveProduct();
+    this.showSavedProductsOnPage();
+    this.setupCategoryClickFilter();
+    this.setupCloseDetailPopup();
   }
 
-  // Open modal
-  openModal() {
-    this.addButton.addEventListener("click", (event) => {
+  setupOpenPopup() {
+    this.openAddProductButton.addEventListener("click", (event) => {
       event.preventDefault();
-      this.loadDropdowns();
-      this.modal.style.display = "flex";
+      this.fillCategoryAndBrandDropdowns();
+      this.addProductPopup.style.display = "flex";
     });
   }
 
-  // Close modal
-  closeModal() {
-    this.closeButton.addEventListener("click", () => {
-      this.modal.style.display = "none";
+  setupClosePopup() {
+    this.closeAddProductButton.addEventListener("click", () => {
+      this.addProductPopup.style.display = "none";
     });
 
     window.addEventListener("click", (event) => {
-      if (event.target === this.modal) {
-        this.modal.style.display = "none";
+      if (event.target === this.addProductPopup) {
+        this.addProductPopup.style.display = "none";
       }
     });
   }
 
-  // Load categories and brands into dropdowns
-  loadDropdowns() {
-    let categories = JSON.parse(localStorage.getItem("categories") || "[]");
-    let brands = JSON.parse(localStorage.getItem("brands") || "[]");
+  fillCategoryAndBrandDropdowns() {
+    const savedCategories = JSON.parse(localStorage.getItem("categories") || "[]");
+    const savedBrands = JSON.parse(localStorage.getItem("brands") || "[]");
 
-    this.categorySelect.innerHTML = `<option>Please Select Category</option>`;
-    this.brandSelect.innerHTML = `<option>Please Select Brand</option>`;
+    this.categoryDropdown.innerHTML = `<option>Please Select Category</option>`;
+    this.brandDropdown.innerHTML = `<option>Please Select Brand</option>`;
 
-    categories.forEach((cat) => {
-      let option = document.createElement("option");
+    savedCategories.forEach((cat) => {
+      const option = document.createElement("option");
       option.textContent = cat;
-      this.categorySelect.appendChild(option);
+      this.categoryDropdown.appendChild(option);
     });
 
-    brands.forEach((brand) => {
-      let option = document.createElement("option");
+    savedBrands.forEach((brand) => {
+      const option = document.createElement("option");
       option.textContent = brand;
-      this.brandSelect.appendChild(option);
+      this.brandDropdown.appendChild(option);
     });
   }
 
-  // Save product
-  handleSubmit() {
-    this.submitButton.addEventListener("click", () => {
-      const file = this.imageInput.files[0];
+  showSavedSidebarItems() {
+    const savedCategories = JSON.parse(localStorage.getItem("shownCategories") || "[]");
+    const savedBrands = JSON.parse(localStorage.getItem("shownBrands") || "[]");
 
+    this.categorySidebar.innerHTML = "";
+    this.brandSidebar.innerHTML = "";
+
+    savedCategories.forEach((cat) => {
+      const item = document.createElement("li");
+      item.textContent = cat;
+      this.categorySidebar.appendChild(item);
+    });
+
+    savedBrands.forEach((brand) => {
+      const item = document.createElement("li");
+      item.textContent = brand;
+      this.brandSidebar.appendChild(item);
+    });
+  }
+
+  setupSaveProduct() {
+    this.submitButton.addEventListener("click", () => {
+      const file = this.imageField.files[0];
       if (!file) {
         alert("Please select an image.");
         return;
       }
 
       const reader = new FileReader();
-
       reader.onload = () => {
-        const product = {
-          name: this.nameInput.value.trim(),
-          price: this.priceInput.value.trim(),
-          discount: this.discountInput.value.trim(),
+        const newProduct = {
+          name: this.nameField.value.trim(),
+          price: this.priceField.value.trim(),
+          discount: this.discountField.value.trim(),
           image: reader.result,
-          category: this.categorySelect.value,
-          brand: this.brandSelect.value
+          category: this.categoryDropdown.value,
+          brand: this.brandDropdown.value,
         };
 
-        let all = JSON.parse(localStorage.getItem("products") || "[]");
-        all.push(product);
-        localStorage.setItem("products", JSON.stringify(all));
+        const allProducts = JSON.parse(localStorage.getItem("products") || "[]");
+        allProducts.push(newProduct);
+        localStorage.setItem("products", JSON.stringify(allProducts));
 
-        // Show in list
-        this.showSingleProduct(product);
+        this.showProductCard(newProduct);
+        this.saveToSidebar("shownCategories", newProduct.category, this.categorySidebar);
+        this.saveToSidebar("shownBrands", newProduct.brand, this.brandSidebar);
 
-        // Update side lists
-        this.saveAndShow("shownCategories", product.category, this.categoryList);
-        this.saveAndShow("shownBrands", product.brand, this.brandList);
+        // Clear form
+        this.nameField.value = "";
+        this.priceField.value = "";
+        this.discountField.value = "";
+        this.imageField.value = "";
+        this.addProductPopup.style.display = "none";
 
-        // Clear form + close
-        this.nameInput.value = "";
-        this.priceInput.value = "";
-        this.discountInput.value = "";
-        this.imageInput.value = "";
-        this.modal.style.display = "none";
-        alert("Product saved!");
+        alert("Product saved successfully!");
       };
 
       reader.readAsDataURL(file);
     });
   }
 
-  // Show one product card
-  showSingleProduct(product) {
+  showProductCard(product) {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${product.image}" alt="product image" />
+      <img src="${product.image}" alt="${product.name}" />
       <div class="price-info">
         <p><strong>Price:</strong> ₹${product.price}</p>
         <p><strong>Discount:</strong> ₹${product.discount}</p>
       </div>
       <p><strong>${product.name}</strong></p>
       <p>${product.category}</p>
-      <button>Add to cart</button>
+      <button class="cart-btn">Add to cart</button>
     `;
-    this.featureBox.appendChild(card);
+
+    // Button to add product to cart
+    const addButton = card.querySelector(".cart-btn");
+    addButton.addEventListener("click", (event) => {
+      event.stopPropagation(); // Don't open product detail modal
+      this.addToCart(product);
+    });
+
+    // Clicking card opens product detail
+    card.addEventListener("click", () => this.showDetailPopup(product));
+    this.productListBox.appendChild(card);
   }
 
-  // Load saved products on page load
-  showSavedProducts() {
-    const products = JSON.parse(localStorage.getItem("products") || "[]");
-    products.forEach((product) => this.showSingleProduct(product));
+  showSavedProductsOnPage() {
+    const allProducts = JSON.parse(localStorage.getItem("products") || "[]");
+    allProducts.forEach((product) => this.showProductCard(product));
   }
 
-  // Category click => filter product display
-  setupCategoryFilter() {
-    this.categoryList.addEventListener("click", (event) => {
+  setupCategoryClickFilter() {
+    this.categorySidebar.addEventListener("click", (event) => {
       if (event.target.tagName === "LI") {
-        const selectedCategory = event.target.textContent;
-        const products = JSON.parse(localStorage.getItem("products") || "[]");
-        const filtered = products.filter((p) => p.category === selectedCategory);
+        const clickedCategory = event.target.textContent;
+        const allProducts = JSON.parse(localStorage.getItem("products") || "[]");
 
-        this.featureBox.innerHTML = "";
-        filtered.forEach((product) => this.showSingleProduct(product));
+        const matchingProducts = allProducts.filter((p) => p.category === clickedCategory);
+        this.productListBox.innerHTML = "";
+        matchingProducts.forEach((product) => this.showProductCard(product));
       }
     });
   }
 
-  // Helper to update sidebar lists without duplicates
-  saveAndShow(storageKey, value, targetUl) {
-    let list = JSON.parse(localStorage.getItem(storageKey) || "[]");
+  saveToSidebar(key, value, sidebarList) {
+    let list = JSON.parse(localStorage.getItem(key) || "[]");
+
     if (!list.includes(value)) {
       list.push(value);
-      localStorage.setItem(storageKey, JSON.stringify(list));
+      localStorage.setItem(key, JSON.stringify(list));
 
       const li = document.createElement("li");
       li.textContent = value;
-      targetUl.appendChild(li);
+      sidebarList.appendChild(li);
     }
   }
-}
 
-// When the page loads, start everything
-document.addEventListener("DOMContentLoaded", () => {
-  new AddProduct();
-});
+  showDetailPopup(product) {
+    this.detailContent.innerHTML = `
+      <div class="product-detail-content">
+        <img src="${product.image}" alt="${product.name}" />
+        <div class="info">
+          <h2>${product.name}</h2>
+          <p><strong>Price:</strong> ₹${product.price}</p>
+          <p><strong>Discount:</strong> ₹${product.discount}</p>
+          <p><strong>Brand:</strong> ${product.brand}</p>
+          <p><strong>Category:</strong> ${product.category}</p>
+          <p><strong>Description:</strong> This is a detailed view of the product.</p>
+          <button id="popupAddToCartBtn">Add to Cart</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("popupAddToCartBtn").addEventListener("click", () => {
+      this.addToCart(product);
+    });
+
+    this.detailPopup.style.display = "flex";
+  }
+
+  setupCloseDetailPopup() {
+    this.closeDetailPopupButton.addEventListener("click", () => {
+      this.detailPopup.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === this.detailPopup) {
+        this.detailPopup.style.display = "none";
+      }
+    });
+  }
+
+  // Save product to cart and redirect
+  addToCart(product) {
+    const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    currentCart.push(product);
+    localStorage.setItem("cart", JSON.stringify(currentCart));
+
+    alert("Added to cart!");
+
+    // Redirect to Cart Page after 500ms
+    setTimeout(() => {
+      window.location.href = "Cart.html"; // Ensure this file exists
+    },0);
+  }
+}
