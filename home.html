@@ -32,24 +32,39 @@
   <div class="main-nav">
     <div class="left-nav">
       <select>
-        <option>USA</option>
         <option>India</option>
       </select>
       <select>
-        <option>DOLLAR</option>
         <option>INR</option>
       </select>
     </div>
-
     <div class="center-nav">
       <a href="#"><i class="fas fa-crosshairs"></i> Home</a>
       <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
       <a href="#" id="addCategoryBtn"><i class="fas fa-lock"></i> Add Category</a>
       <a href="#" id="addBrandBtn"><i class="fas fa-lock"></i> Add Brand</a>
-      <a href="#"><i class="fas fa-lock"></i> Add Product</a>
+      <a href="#" id="addProductBtn"><i class="fas fa-lock"></i> Add Product</a>
       <a href="#"><i class="fas fa-lock"></i> Change Password</a>
       <a href="#"><i class="fas fa-lock"></i> Logout</a>
     </div>
+  </div>
+
+  <!-- Sidebar for Category and Brand -->
+  <div class="sidebar">
+    <div class="box">
+      <h3>Category</h3>
+      <ul id="categoryList"></ul>
+    </div>
+    <div class="box">
+      <h3>Brands</h3>
+      <ul id="brandList"></ul>
+    </div>
+  </div>
+
+  <!-- Feature Items -->
+  <div class="main-content" id="productDisplay">
+    <h2 class="features-title">FEATURES ITEMS</h2>
+    <div class="product-container" id="featureItems"></div>
   </div>
 
   <!-- Add Category Modal -->
@@ -63,20 +78,36 @@
     </div>
   </div>
 
-  <!-- Add brand -->
-<div class="modal" id="categoryBrand">
-  <div class="modal-box">
-    <span class="close-btn" id="closeBrandBtn">&times;</span>
-    <h2> Add Brand</h2>
-    <input type="text" placeholder="Brand Name"/>
-    <p>Required</p>
-    <button>Submit</button>
+  <!-- Add Brand Modal -->
+  <div class="modal" id="categoryBrand">
+    <div class="modal-box">
+      <span class="close-btn" id="closeBrandBtn">&times;</span>
+      <h2>Add Brand</h2>
+      <input type="text" placeholder="Brand Name" />
+      <p>Required</p>
+      <button>Submit</button>
+    </div>
   </div>
-</div>
+
+  <!-- Add Product Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-box">
+      <span class="close-btn" id="closeProductBtn">&times;</span>
+      <h2>Add Product</h2>
+      <input type="text" placeholder="Product Name" id="productName" />
+      <input type="text" placeholder="Product Price" id="productPrice" />
+      <input type="number" placeholder="Product Discount" id="productDiscount" />
+      <select id="productCategory"><option>Please Select Category</option></select>
+      <select id="productBrand"><option>Please Select Brand</option></select>
+      <input type="file" id="productImage" />
+      <button id="submitProductBtn">Submit</button>
+    </div>
+  </div>
 
   <!-- JS Files -->
   <script type="module" src="AddCategory.js"></script>
   <script type="module" src="AddBrand.js"></script>
+  <script type="module" src="AddProduct.js"></script>
   <script type="module" src="Logout.js"></script>
 </body>
 </html>
