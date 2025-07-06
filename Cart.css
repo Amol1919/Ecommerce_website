@@ -1,46 +1,88 @@
+/* ====== Cart & Payment Table ====== */
 table {
   width: 90%;
   margin: 30px auto;
   border-collapse: collapse;
-  font-family: Arial;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
+
+thead {
+  background: #1976d2;    /* deep-blue header */
+}
+
 th, td {
-  padding: 12px;
+  padding: 14px 12px;
   text-align: center;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  font-size: 15px;
 }
+
 th {
-  background-color: orange;
-  color: white;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
 }
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
 img {
   max-width: 80px;
-}
-button {
-  background: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 12px;
-  cursor: pointer;
-}
-button:hover {
-  background: darkred;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
+/* ====== Remove Button ====== */
 .remove-btn {
-  background-color: #eee;
-  color: red;
-  font-size: 16px;
-  border: 1px solid #ccc;
+  background: transparent;
+  color: #f44336;
+  font-size: 18px;
+  border: 1px solid #f44336;
   border-radius: 4px;
-  padding: 5px 10px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s, color 0.2s;
 }
-
 .remove-btn:hover {
-  background-color: #fcebea;
-  color: darkred;
-  border-color: red;
+  background: #f44336;
+  color: #fff;
 }
 
+/* ====== Total Summary ====== */
+.total-summary {
+  width: 90%;
+  margin: 20px auto;
+  text-align: right;
+  font-size: 20px;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+/* ====== Proceed Button ====== */
+.proceed-section {
+  width: 90%;
+  margin: 10px auto 40px;
+  text-align: right;
+}
+.proceed-btn {
+  background:  #e68900;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.proceed-btn:hover {
+  background: #32a712 ;
+}

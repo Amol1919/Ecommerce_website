@@ -1,48 +1,61 @@
-// Run the code after the page loads
+// When the page is fully loaded, start the cart
 document.addEventListener("DOMContentLoaded", () => {
   new ShowCart();
 });
 
+// Cart page logic
 class ShowCart {
   constructor() {
-    // Get the <tbody> element where products will be shown
+    // Get the area where products will be shown
     this.cartTableBody = document.querySelector("tbody");
 
-    // Get cart items from localStorage or empty if none
+    // Get data from localStorage (or empty if nothing)
     this.cartData = JSON.parse(localStorage.getItem("cart") || "[]");
 
-    // Show all products in the cart
+    // Show the products
     this.displayCartItems();
   }
 
+  // Show all products in table
   displayCartItems() {
-    // Clear old rows
+    // First, remove old rows
     this.cartTableBody.innerHTML = "";
 
-    // Show each product in table
-    this.cartData.forEach((item, index) => {
-      const totalPrice = item.price - item.discount;
+    let total = 0; // Total price starts from 0
 
-      // Create a new table row
+    // Loop through each item in cart
+    this.cartData.forEach((item, index) => {
+      const price = Number(item.price);
+      const discount = Number(item.discount);
+      const finalPrice = price - discount;
+
+      // Add this item's final price to total
+      total += finalPrice;
+
+      // Create table row for this item
       const row = document.createElement("tr");
       row.innerHTML = `
         <td><img src="${item.image}" width="70" height="70" style="object-fit:cover; border-radius:6px;" /></td>
         <td>${item.name}</td>
-        <td>₹${item.price}</td>
-        <td>₹${item.discount}</td>
-        <td style="color: orange;"><strong>₹${totalPrice}</strong></td>
-        <td>
-          <button class="remove-btn" data-index="${index}">×</button>
-        </td>
+        <td>₹${price}</td>
+        <td>${discount}%</td>
+        <td style="color: orange;"><strong>₹${finalPrice}</strong></td>
+        <td><button class="remove-btn" data-index="${index}">×</button></td>
       `;
-
       this.cartTableBody.appendChild(row);
     });
 
-    // Add remove functionality to all buttons
+    // Show total price on screen
+    const totalBox = document.getElementById("cartTotal");
+    if (totalBox) {
+      totalBox.textContent = `Total Payable: ₹${total}`;
+    }
+
+    // Add remove button functionality
     this.setupRemoveButtons();
   }
 
+  // What happens when user clicks X to remove item
   setupRemoveButtons() {
     const removeButtons = document.querySelectorAll(".remove-btn");
 
@@ -50,13 +63,18 @@ class ShowCart {
       btn.addEventListener("click", () => {
         const index = btn.getAttribute("data-index");
 
-        // Remove from cart and update localStorage
+        // Remove from cart and update storage
         this.cartData.splice(index, 1);
         localStorage.setItem("cart", JSON.stringify(this.cartData));
 
-        // Refresh the table
+        // Show updated table again
         this.displayCartItems();
       });
     });
   }
+}
+
+// When user clicks "Proceed to Payment"
+function goToPaymentPage() {
+  window.location.href = "Payment.html";
 }

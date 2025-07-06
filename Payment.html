@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Page</title>
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link rel="stylesheet" href="Payment.css" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="contact-info">
+      <span><i class="fas fa-phone-alt"></i> +91 7777777777</span>
+      <span><i class="fas fa-envelope"></i> phpenquiry@gmail.com</span>
+    </div>
+    <nav class="main-nav">
+      <a href="Home.html">Home</a>
+      <a href="Cart.html">Cart</a>
+      <a href="AddCategory.html">Add Category</a>
+      <a href="AddBrand.html">Add Brand</a>
+      <a href="AddProduct.html">Add Product</a>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <main class="payment-container">
+    <h1 class="page-title">Payment Summary</h1>
+
+    <div class="panels">
+
+      <!-- Order summary -->
+      <section class="summary-panel">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Discount</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="paymentTableBody">
+            <!-- JS injects rows here -->
+          </tbody>
+        </table>
+        <div class="grand-total" id="grandTotal">
+          Total Payable: ₹0
+        </div>
+      </section>
+
+      <!-- Customer details & pay -->
+      <section class="form-panel">
+        <form id="paymentForm">
+          <input type="text"    placeholder="Full Name"      required />
+          <input type="email"   placeholder="Email"          required />
+          <input type="tel"     placeholder="Mobile Number"  required />
+          <textarea            placeholder="Address" rows="4" required></textarea>
+          <button type="button" id="payBtn">Pay Now</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <script type="module" src="Payment.js"></script>
+</body>
+</html>

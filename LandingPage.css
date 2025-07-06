@@ -1,80 +1,99 @@
-body {
-  font-family: Arial, sans-serif;
+/* ===== Global Reset & Base ===== */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #eef2f5;
+  color: #333;
 }
 
-/* Top Bar */
+/* ===== Top Bar ===== */
 .top-bar {
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 30px;
-  border-bottom: 1px solid #eee;
-}
-
-.top-bar select {
-  margin-right: 10px;
-  padding: 6px 12px;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
   font-size: 14px;
 }
-
+.top-bar select {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  font-size: 14px;
+  color: #555;
+  margin-right: 12px;
+}
 .top-bar .right a {
   margin-left: 20px;
   text-decoration: none;
-  color: #333;
-  font-size: 14px;
+  color: #1976d2;
+  font-weight: 500;
+  transition: color 0.2s;
 }
-
 .top-bar .right a i {
   margin-right: 6px;
 }
+.top-bar .right a:hover {
+  color: #125ea7;
+  text-decoration: underline;
+}
 
-/* Main Navigation */
+/* ===== Main Navigation ===== */
 .main-nav {
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 30px;
-  border-bottom: 1px solid #eee;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
 }
-
 .nav-left a {
-  margin-right: 20px;
+  margin-right: 24px;
   text-decoration: none;
-  color: #333;
+  color: #555;
   font-size: 15px;
   position: relative;
+  padding: 4px 0;
+  transition: color 0.2s;
 }
-
+.nav-left a:hover {
+  color: #1976d2;
+}
 .nav-left a.active {
-  color: orange;
-  font-weight: bold;
+  color: #ffffff;
+  background: #1976d2;
+  border-radius: 4px;
+  padding: 6px 10px;
 }
-
 .nav-left a i {
   margin-left: 4px;
   font-size: 12px;
 }
 
+/* ===== Search Box ===== */
 .nav-right {
   display: flex;
   align-items: center;
-  background-color: #f1f1e7;
-  padding: 6px 10px;
+  background: #f1f1e7;
   border-radius: 4px;
+  padding: 6px 10px;
 }
-
 .nav-right input {
   border: none;
   background: transparent;
   outline: none;
-  padding: 4px 6px;
   font-size: 14px;
   color: #444;
+  margin-right: 6px;
 }
-
 .nav-right i {
-  color: gray;
+  color: #888;
   font-size: 14px;
 }

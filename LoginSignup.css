@@ -1,148 +1,148 @@
-/* RESET */
+/* ========== Global Reset ========== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
-
-html, body {
-  height: 100%;
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #2c3e50;
+  background: #eef2f5;
+  color: #333;
 }
 
-/* CONTAINER */
+/* ========== Container for Side-by-Side Layout ========== */
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 40px 20px;
-  max-width: 960px;
-  width: 100%;
+  align-items: flex-start;
   flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* FORM CARD */
+/* ========== Form Card ========== */
 .form-box {
-  background: #ffffff;
+  background: #fff;
   padding: 35px 40px;
-  flex: 1 1 320px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease;
 }
-
 .form-box:hover {
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* HEADINGS */
+/* ========== Headings ========== */
 h2 {
+  font-size: 24px;
   margin-bottom: 24px;
-  font-size: 22px;
-  font-weight: 600;
-  color: #1a1a1a;
+  color: #222;
+  text-align: center;
 }
 
-/* LABELS & INPUTS */
+/* ========== Labels & Inputs ========== */
 label {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 6px;
-  margin-top: 16px;
   display: block;
+  font-size: 14px;
+  color: #555;
+  margin-top: 16px;
+  margin-bottom: 6px;
   font-weight: 500;
 }
-
 .required {
-  color: red;
-  font-weight: bold;
-  margin-left: 3px;
+  color: #d32f2f;
+  margin-left: 4px;
 }
-
 input {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  background-color: #f9f9f9;
+  background: #f9f9f9;
   font-size: 15px;
-  transition: border 0.3s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-
 input:focus {
-  outline: none;
-  border-color: #3498db;
-  background-color: #ffffff;
+  border-color: #1976d2;
+  box-shadow: 0 0 4px rgba(25,118,210,0.3);
+  background: #fff;
 }
 
-/* BUTTONS */
-button {
+/* ========== Submit Button ========== */
+button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background-color: #ff9800;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+  margin-top: 24px;
   font-size: 15px;
   font-weight: 500;
-  margin-top: 24px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #e68900;
-}
-
-/* OR DIVIDER - CENTERED */
-.divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  align-self: center;    
-  flex: 0 0 auto;
-}
-
-.divider span {
-  background-color: #ff9800;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.login-success-msg {
+  border: none;
+  border-radius: 6px;
   background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button[type="submit"]:hover {
+  background: #388e3c;
+}
+
+/* ========== Success Message ========== */
+.login-success-msg {
+  background: #388e3c;
   color: white;
   padding: 12px;
-  margin-top: 20px;
   border-radius: 6px;
   text-align: center;
   font-weight: bold;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  animation: fadeInScale 0.4s ease-in-out;
+  margin-top: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-
-/* RESPONSIVE (Mobile-Friendly) */
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
+    align-items: center;
   }
 
-  .divider {
-    margin: 20px 0;
+  .form-box {
+    max-width: 100%;
+    margin-bottom: 30px;
   }
 }
+
+/* Container: side-by-side, vertically centered */
+.container {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Divider bubble */
+.divider {
+  align-self: center;       /* ensure it centers even if cards differ in height */
+  width: 60px;
+  height: 60px;
+  background-color: #1976d2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.divider span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
