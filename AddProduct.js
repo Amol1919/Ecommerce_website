@@ -162,7 +162,7 @@ class AddProduct {
       this.addToCart(product);
     });
 
-    // ✅ Clicking the card opens product detail modal
+    // Clicking the card opens product detail modal
     card.addEventListener("click", () => this.showDetailPopup(product));
 
     this.productListBox.appendChild(card);
@@ -199,7 +199,7 @@ class AddProduct {
     }
   }
 
-  // ✅ New: show product detail popup
+  // New: show product detail popup
   showDetailPopup(product) {
     this.detailContent.innerHTML = `
       <div class="product-detail-content">
@@ -207,7 +207,7 @@ class AddProduct {
         <div class="info">
           <h2>${product.name}</h2>
           <p><strong>Price:</strong> ₹${product.price}</p>
-          <p><strong>Discount:</strong> ₹${product.discount}</p>
+          <p><strong>Discount:</strong> ${product.discount}%</p>
           <p><strong>Brand:</strong> ${product.brand}</p>
           <p><strong>Category:</strong> ${product.category}</p>
           <p><strong>Description:</strong> This is a detailed view of the product.</p>
