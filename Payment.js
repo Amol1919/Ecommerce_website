@@ -1,4 +1,4 @@
-// 🟢 Start the app after the page is fully loaded
+//Start the app after the page is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   new PaymentPage(); // create and run the PaymentPage class
 });
@@ -56,7 +56,7 @@ class PaymentPage {
     this.totalAmountBox.textContent = `Total Payable: ₹${totalPrice}`;
   }
 
-  // 🟢 This function runs when Pay button is clicked
+  // This function runs when Pay button is clicked
   enablePayButton() {
     const payBtn = document.getElementById("payBtn");
 

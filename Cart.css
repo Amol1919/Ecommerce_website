@@ -1,4 +1,4 @@
-/* ====== Cart & Payment Table ====== */
+/* ---------- Cart & Payment Table ---------- */
 table {
   width: 90%;
   margin: 30px auto;
@@ -37,7 +37,7 @@ img {
   object-fit: cover;
 }
 
-/* ====== Remove Button ====== */
+/* ---------- Remove Button ---------- */
 .remove-btn {
   background: transparent;
   color: #f44336;
@@ -56,7 +56,7 @@ img {
   color: #fff;
 }
 
-/* ====== Total Summary ====== */
+/* ---------- Total Summary ---------- */
 .total-summary {
   width: 90%;
   margin: 20px auto;
@@ -66,7 +66,7 @@ img {
   font-weight: 600;
 }
 
-/* ====== Proceed Button ====== */
+/* ---------- Proceed Button ---------- */
 .proceed-section {
   width: 90%;
   margin: 10px auto 40px;

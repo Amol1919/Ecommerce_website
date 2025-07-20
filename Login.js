@@ -52,13 +52,13 @@ form.addEventListener("submit", (e) => {
   if (enteredEmail === savedUser.email && enteredPassword === savedUser.password) {
     form.reset();
 
-    // ✅ Create success message
+    // Create success message
     const msgBox = document.createElement("div");
-    msgBox.textContent = "✅ Login successful! Redirecting...";
+    msgBox.textContent = "Login successful! Redirecting...";
     msgBox.classList.add("login-success-msg"); // Style in CSS
     form.parentNode.appendChild(msgBox);
 
-    // ✅ Redirect parentNode.appendChild 1 second
+    // Redirect parentNode.appendChild 1 second
     setTimeout(() => {
       window.location.href = "Home.html";
     },0);
